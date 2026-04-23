@@ -1,15 +1,21 @@
-name = "chat-ol" # Your Worker name
-main = "src/index.js"      # Path to your main Worker script
-compatibility_date = "2024-04-23" # Use today's date or a recent one
+name = "kv-chat-app"
+main = "index.js"
+compatibility_date = "2024-01-01"
 
-# Define the Durable Object binding
+# 绑定 Durable Object
 [durable_objects]
 bindings = [
-    { name = "ROOM", class_name = "ChatRoom" }
+  { name = "CHAT_ROOM", class_name = "ChatRoom" }
 ]
 
-# Migration for the Durable Object
+# 必须使用 new_sqlite_classes 才能在免费套餐使用 DO
 [[migrations]]
 tag = "v1"
-new_classes = ["ChatRoom"]
-new_sqlite_classes = true # ✅ 必须添加这一行
+new_sqlite_classes = ["ChatRoom"]
+
+# 绑定 KV 命名空间
+# 请在 Cloudflare 后台创建 KV 后填入 ID
+[[kv_namespaces]]
+binding = "CHAT_KV"
+id = "837abc8aa79d4658bfb146897e91ef39"
+preview_id = "837abc8aa79d4658bfb146897e91ef39"
