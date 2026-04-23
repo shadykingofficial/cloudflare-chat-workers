@@ -12,3 +12,4 @@ bindings = [
 [[migrations]]
 tag = "v1"
 new_classes = ["ChatRoom"]
+new_sqlite_classes = true # ✅ 必须添加这一行
