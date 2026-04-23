@@ -1,15 +1,13 @@
 {
-  "name": "chat-room",
+  "name": "cf-chat-app",
   "version": "1.0.0",
-  "description": "A real-time chat application using Cloudflare Workers and Durable Objects.",
+  "description": "Real-time chat app for Cloudflare Workers",
   "main": "src/index.js",
   "scripts": {
     "deploy": "wrangler deploy",
-    "dev": "wrangler dev"
+    "start": "wrangler dev"
   },
-  "author": "",
-  "license": "MIT",
   "devDependencies": {
-    "wrangler": "^4.84.1"
+    "wrangler": "^3.0.0"
   }
 }
