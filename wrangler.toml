@@ -1,18 +1,14 @@
-name = "chat-room" # Your Worker name
-main = "src/index.js"        # Path to your main Worker script
-compatibility_date = "2024-04-23" # Use today's date or a recent one for compatibility features
+name = "chat-ol" # Your Worker name
+main = "src/index.js"      # Path to your main Worker script
+compatibility_date = "2024-04-23" # Use today's date or a recent one
 
-# Define your Durable Object
+# Define the Durable Object binding
 [durable_objects]
 bindings = [
-    { name = "CHAT_ROOM", class_name = "ChatRoom" }
+    { name = "ROOM", class_name = "ChatRoom" }
 ]
 
-# Migrate state for the Durable Object (required)
+# Migration for the Durable Object
 [[migrations]]
 tag = "v1"
 new_classes = ["ChatRoom"]
-
-# Optional: Environment variables
-# [vars]
-# DEFAULT_ROOM = "general"
